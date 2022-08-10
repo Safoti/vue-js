@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>组件的嵌套</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+ <body>
+<!--   创建组件的三大步骤：
+   一：定义组件
+   二：注册组件
+   三：使用组件 -->
+<div id="root">
+    <h2>{{msg}}</h2><hr>
+    <!-- 第三步：编写组件标签 -->
+    <schools></schools><hr>
+<script type="text/javascript">
+    Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+     //学生组件
+   const st=  Vue.extend({
+        name: 'st',
+        template: `
+        <div>
+            <h4>学生姓名：{{name}}</h4>	
+            <h4>学生年龄：{{age}}</h4>	
+      </div>
+    `,
+        data(){
+            return {
+               name:"北京邮电大学",
+               age:19
+            }
+           }
+     })
+   
+   
+    //创建学校组件  学校包含学生
+    const sc= Vue.extend({
+       name:"sc",
+       template:`
+        <div >
+           <h3>学校名称：{{name}}</h3>
+           <h3>学校地址：{{address}}</h3>
+           <st></st>
+         </div>
+       `,
+       data(){
+         return {
+            name:"北京邮电大学",
+            address:"北京"
+         }
+        },
+        components:{
+            //注册组件
+            st 
+        }
+
+     })
+
+      //定义hello组件
+  const hellos = Vue.extend({
+    template: `<h3>{{msg}}</h3>`,
+    data() {return {msg: '欢迎来到尚硅谷学习！'}}
+  })
+    //定义app组件
+    const app = Vue.extend({
+        template: `
+                    <div>	
+                        <hellos></hellos>
+                        <sc></sc>
+                  </div>
+                `,
+        components: { sc, hellos }
+      })
+    
+    //创建vm
+  new Vue({
+    el: '#root',
+    template: '<app></app>',
+    //注册组件（局部）
+    components: { app }
+  })
+</script>
+</body>
+</html>

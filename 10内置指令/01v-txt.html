@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>v-text 指令</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+   
+<div id="root">
+      <div> hello ,{{name}}</div>
+      <div v-text="name"></div>
+      <!--  v-text会替换节点的内容 插值语法不会 -->
+      <div v-text="str"></div>   
+      <div v-text="sdd">这是默认的值</div>   
+      <div>不知道这个会显示吗?{{gi}}</div> 
+    </div>
+<script type="text/javascript">
+    Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+    const vm = new Vue({
+        el: '#root',
+        data: {
+          name:"safoti",
+          str:'<h3>你好啊！</h3>',
+          sdd:""
+        }
+      
+    })
+</script>
+</body>
+</html>

