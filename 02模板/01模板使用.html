@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板使用</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+  <div id="root">
+      <h2>插值语法</h2>
+     <h3> Hello {{name}}</h3>
+      </hr>
+      <h2>指令语法</h2>
+      <a v-bind:href="url">指令语法跳转路径</a>
+  </div>
+  <script type="text/javascript">
+      Vue.config.productionTip=false
+      new Vue({
+          el:"#root",
+          data:{
+              name:"zs",
+              url:"http://www.baidu.com"
+          }
+      })
+  </script>
+</body> 
+</html>

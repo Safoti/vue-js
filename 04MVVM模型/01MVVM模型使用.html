@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mvvm 模型</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+  <div id="root">
+      <H2>名称：{{name}}</H2>
+      <H2>战队：{{rank}}</H2>
+      <H2>测试：{{$options}}</H2>
+  </div>
+  <script type="text/javascript">
+      Vue.config.productionTip=false
+
+     const vm= new Vue({
+          el:"#root",
+          data:{ //对象式写法
+              name:"cess",
+              rank:"4AF"
+          }
+
+      })
+
+      console.log(vm)
+
+  </script>
+</body> 
+</html>

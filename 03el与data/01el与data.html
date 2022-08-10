@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>el 与data 的两种方式</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+  <div id="root">
+        你好 ：{{vue}}
+  </div>
+  <script type="text/javascript">
+      Vue.config.productionTip=false
+      // new Vue({
+      //     el:"#root", //第一种方式
+      //     data:{
+      //         name:"cess"
+      //     }
+      // })
+    // const  x=new Vue({
+    //      data:{
+    //          vue:"vues "
+    //      }
+    //  })
+    //   x.$mount("#root") //另外一种方式
+
+    // data的两种写法
+      new Vue({
+          el:"#root",
+          // data:{ //对象式写法
+          //     vue:"cess"
+          // }
+          data(){ //函数式写法
+              console.log("@@",this)
+              return {
+                  vue:"cess"
+              }
+          }
+      })
+
+  </script>
+</body> 
+</html>
